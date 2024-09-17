@@ -21,6 +21,6 @@ Results will appear in text file named `${DOMAIN_NAME}.txt`
 
 Search NS of domain name is complex task .
 
-so, I skip NS,and use the `@ns1.google.com` in every dns query.
+so, I skip NS search,and just use the `@ns1.google.com` in every dns query.
 
 
