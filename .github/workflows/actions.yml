@@ -1,4 +1,4 @@
-name: imap.gmail.com
+name: dns-collector
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 #  schedule:
 #    - cron:  '0 11 */5 * *'
 jobs:
-  run-test:
+  imap-gmail-com:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -15,7 +15,7 @@ jobs:
       - name : imap.gmail.com
         shell: bash
         run : |
-          Collect_DNS_A_RECORD.sh imap.gmail.com 60
+          bash Collect_DNS_A_RECORD.sh imap.gmail.com 60
       - name : log
         shell: bash
         run : |
