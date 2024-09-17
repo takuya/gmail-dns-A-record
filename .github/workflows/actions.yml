@@ -22,6 +22,7 @@ jobs:
         shell: bash
         run : |
           date  > last-updated.txt
+          git pull
       - name: push updated lists
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -41,6 +42,7 @@ jobs:
         shell: bash
         run : |
           date  > last-updated.txt
+          git pull
       - name: push updated lists
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
