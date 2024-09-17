@@ -1,0 +1,26 @@
+name: imap.gmail.com
+
+on:
+  push:
+    branches:
+      - master
+#  schedule:
+#    - cron:  '0 11 */5 * *'
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name : imap.gmail.com
+        shell: bash
+        run : |
+          Collect_DNS_A_RECORD.sh imap.gmail.com 60
+      - name : log
+        shell: bash
+        run : |
+          date  > last-updated.txt
+      - name: push updated lists
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: update tested date.
