@@ -16,7 +16,7 @@ function collect_A_record(){
     echo "$VAL" >> "$TEMP"
     sleep 10
   done
-  cat "${TEMP}" | sort | uniq > "${DOMAIN_NAME}".txt
+  cat "${TEMP}"  "${DOMAIN_NAME}".txt | sort | uniq | tee "${DOMAIN_NAME}".txt
 }
 
 function main(){
