@@ -11,9 +11,9 @@ function collect_A_record(){
     RET=$(dig @ns1.google.com "${DOMAIN_NAME}" +short)
     if [[ $RET != $VAL ]];then
       echo "$i" : changed
-      echo "$VAL" >> "$TEMP"
     fi
     VAL=$RET
+    echo "$VAL" >> "$TEMP"
     sleep 10
   done
   cat "${TEMP}" | sort | uniq > "${DOMAIN_NAME}".txt
