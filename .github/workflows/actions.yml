@@ -7,7 +7,7 @@ on:
   schedule:
     - cron:  '0 0 18 * *'
 jobs:
-  imap-gmail-com:
+  gmail-ns:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -18,33 +18,11 @@ jobs:
         shell: bash
         run : |
           bash Collect_DNS_A_RECORD.sh imap.gmail.com 1
-      - name : log
-        shell: bash
-        run : |
-          date  > last-updated.txt
-          git config pull.rebase true
-          git pull
-      - name: push updated lists
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: update dns records.
-  smtp-gmail-com:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-      - name : smtp.gmail.com
-        shell: bash
-        run : |
           bash Collect_DNS_A_RECORD.sh smtp.gmail.com 1
       - name : log
         shell: bash
         run : |
           date  > last-updated.txt
-          git config pull.rebase true
-          git pull
       - name: push updated lists
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
