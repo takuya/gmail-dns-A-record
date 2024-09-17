@@ -17,7 +17,7 @@ jobs:
       - name : imap.gmail.com
         shell: bash
         run : |
-          bash Collect_DNS_A_RECORD.sh imap.gmail.com 1
+          bash Collect_DNS_A_RECORD.sh imap.gmail.com 60
       - name : log
         shell: bash
         run : |
@@ -36,7 +36,7 @@ jobs:
       - name : smtp.gmail.com
         shell: bash
         run : |
-          bash Collect_DNS_A_RECORD.sh smtp.gmail.com 1
+          bash Collect_DNS_A_RECORD.sh smtp.gmail.com 60
       - name : log
         shell: bash
         run : |
