@@ -9,13 +9,15 @@ on:
 jobs:
   imap-gmail-com:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: checkout
         uses: actions/checkout@v3
       - name : imap.gmail.com
         shell: bash
         run : |
-          bash Collect_DNS_A_RECORD.sh imap.gmail.com 3
+          bash Collect_DNS_A_RECORD.sh imap.gmail.com 1
       - name : log
         shell: bash
         run : |
@@ -23,4 +25,4 @@ jobs:
       - name: push updated lists
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: update tested date.
+          commit_message: update dns records.
